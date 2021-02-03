@@ -6,6 +6,8 @@ Author: Zahier Nasrudin
 Maintainer: Zahier Nasrudin <zahiernasrudin@gmail.com>
 Description: A Natural Language package for Bahasa Malaysia. In this package,
     we will provide useful data sets (more to come!) and functions to handle Malay text.
+URL: https://github.com/zahiernasrudin
+BugReports: https://github.com/zahiernasrudin/malaytextr/issues    
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
