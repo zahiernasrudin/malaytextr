@@ -1,0 +1,14 @@
+Package: malaytextr
+Type: Package
+Title: A package for Bahasa Malaysia
+Version: 0.1.0
+Author: Zahier Nasrudin
+Maintainer: Zahier Nasrudin <zahiernasrudin@gmail.com>
+Description: A Natural Language package for Bahasa Malaysia. In this package,
+    we will provide useful data sets (more to come!) and functions to handle Malay text.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
