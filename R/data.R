@@ -8,3 +8,11 @@ NULL
 "malaystopwords"
 
 
+#' @importFrom tibble tibble
+NULL
+#' Malay Root Words.
+#'
+#' Malay Root Words
+#'
+#' @format A data frame with 2 variables: \code{Word}, \code{Root Word}
+"malayrootwords"
