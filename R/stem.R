@@ -4,9 +4,9 @@
 #' Malaytextr function to stem Malay words
 #' @usage stem_malay(Word,
 #'   dictionary,
-#'   by = NULL,
-#'   col_feature = NULL,
-#'   col_feature2 = "Root Word")
+#'   col_feature1,
+#'   col_dict1,
+#'   col_dict2)
 #'
 #' @details
 #' `stem_malay()` is an approach to find the Malay words in a dictionary
@@ -18,19 +18,11 @@
 #'
 #' @param Word A data frame, or a character vector
 #' @param dictionary A data frame with a column of words to be stemmed and a column of root words
-#' @param by Column(s) between `Word` and `dictionary` to be used to match words.
+
 #'
-#'
-#'   The same concept used in join function from dplyr package.
-#'
-#'   If nothing is specified, common column name between `Word` and `dictionary` will be used
-#'
-#'   For different column names, can be specified as `by = c("x" = "Text")`
-#'
-#'   "x" is a column from `Word` and "Text" is a column from `dictionary`
-#'
-#' @param col_feature Column that contains words to be stemmed from `Word`
-#' @param col_feature2 Column that contains root words from `dictionary`
+#' @param col_feature1 Column that contains words to be stemmed from `Word`
+#' @param col_dict1 Column that will be used to match with `col_feature1` from `Word`
+#' @param col_dict2 Column that contains the root words from `dictionary`
 #'
 #' @examples
 #'
@@ -43,11 +35,11 @@
 #'
 #' #A data frame,
 #' #Use a dictionary from malaytextr package,
-#' #With a dataframe, you will need to specify the columns to match
+#' #With a dataframe, you will need to specify the column to be stemmed
 #'
-#'x <- data.frame(x = c("banyaknya","sangat","terkedu", "pengetahuan"))
+#'x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 #'
-#'stem_malay(Word = x, dictionary = malayrootwords, by = c("x" = "Col Word") , col_feature = "x")
+#'stem_malay(Word = x, dictionary = malayrootwords, col_feature1 = "text")
 #'
 #' @export
 "stem_malay"
@@ -64,16 +56,17 @@ to_data.frame <- function(x) {
 }
 
 
-stem_malay <- function(Word, dictionary, by = NULL, col_feature = NULL, col_feature2 = "Root Word") {
+stem_malay <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
 
   UseMethod("stem_malay")
 
 }
 
+
 #' @export
 
 
-stem_malay.character <- function(Word, dictionary, by = NULL, col_feature = NULL, col_feature2 = "Root Word") {
+stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
 
   #global binding
 
@@ -90,13 +83,13 @@ stem_malay.character <- function(Word, dictionary, by = NULL, col_feature = NULL
   Word <- to_data.frame(Word)
 
   # This is the root word variable in a dictionary ---
-  col <- dplyr::sym(col_feature2)
+  col <- dplyr::sym(col_dict2)
 
   # Change columns in the dictionary to lowercase-format ---
   dictionary <- dplyr::mutate_all(dictionary, .funs= stringr::str_to_lower)
 
   # Map word to get the root word ---
-  df_map <- dplyr::left_join(Word, dictionary, by = by) #map word with root word
+  df_map <- dplyr::left_join(Word, dictionary, by = c("Col Word" = rlang::as_name(col_dict1))) #map word with root word
 
   # To indicate which one can be found, and which not ---
   df_map <- df_map %>%
@@ -140,11 +133,12 @@ stem_malay.character <- function(Word, dictionary, by = NULL, col_feature = NULL
 
 #' @export
 
-stem_malay.data.frame <- function(Word, dictionary, by = NULL, col_feature = NULL, col_feature2 = "Root Word") {
+stem_malay.data.frame <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word")  {
 
   #global binding
 
   root_word = NULL
+  `Col Word` = NULL
 
   #specify suffix, infix, prefix, suffix ----
 
@@ -154,18 +148,18 @@ stem_malay.data.frame <- function(Word, dictionary, by = NULL, col_feature = NUL
   suffix = "(kannya|nya|kan|an|i|kah|lah|pun|ita|man|wan|wati|ku|mu)$"
 
 
-  # Word to be stemmed ---
-  col_ori <- dplyr::sym(col_feature)
-
   # This is the root word variable in a dictionary ---
-  col <- dplyr::sym(col_feature2)
+  col <- dplyr::sym(col_dict2)
 
-  # Change columns in the dictionary to lowercase-format ---
+  # Change columns to lowercase-format ---
   Word <- dplyr::mutate_all(Word, .funs= stringr::str_to_lower)
   dictionary <- dplyr::mutate_all(dictionary, .funs= stringr::str_to_lower)
 
+  # Rename column
+  Word <- dplyr::rename(Word, `Col Word` = {{ col_feature1 }})
+
   # Map word to get the root word ---
-  df_map <- dplyr::left_join(Word, dictionary, by = by)
+  df_map <- dplyr::left_join(Word, dictionary, by = c("Col Word" =  rlang::as_name(col_dict1)))
 
   # To indicate which one can be found, and which not ---
   df_map <- df_map %>%
@@ -176,7 +170,7 @@ stem_malay.data.frame <- function(Word, dictionary, by = NULL, col_feature = NUL
   df_map <- df_map %>%
     dplyr::mutate(root_word = dplyr::if_else(match == "YES",
                                              {{col}},
-                                             {{col_ori}})) %>%
+                                             `Col Word`)) %>%
 
     # If cannot be found, remove extra suffix ---
     dplyr::mutate(root_word = dplyr::if_else(match == "NO" &

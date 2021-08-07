@@ -10,28 +10,20 @@ An object of class \code{function} of length 1.
 \usage{
 stem_malay(Word,
   dictionary,
-  by = NULL,
-  col_feature = NULL,
-  col_feature2 = "Root Word")
+  col_feature1,
+  col_dict1,
+  col_dict2)
 }
 \arguments{
 \item{Word}{A data frame, or a character vector}
 
 \item{dictionary}{A data frame with a column of words to be stemmed and a column of root words}
 
-\item{by}{Column(s) between \code{Word} and \code{dictionary} to be used to match words.
+\item{col_feature1}{Column that contains words to be stemmed from \code{Word}}
 
-The same concept used in join function from dplyr package.
+\item{col_dict1}{Column that will be used to match with \code{col_feature1} from \code{Word}}
 
-If nothing is specified, common column name between \code{Word} and \code{dictionary} will be used
-
-For different column names, can be specified as \code{by = c("x" = "Text")}
-
-"x" is a column from \code{Word} and "Text" is a column from \code{dictionary}}
-
-\item{col_feature}{Column that contains words to be stemmed from \code{Word}}
-
-\item{col_feature2}{Column that contains root words from \code{dictionary}}
+\item{col_dict2}{Column that contains the root words from \code{dictionary}}
 }
 \description{
 Malaytextr function to stem Malay words
@@ -51,11 +43,11 @@ stem_malay(Word = "banyaknya", dictionary = malayrootwords)
 
 #A data frame,
 #Use a dictionary from malaytextr package,
-#With a dataframe, you will need to specify the columns to match
+#With a dataframe, you will need to specify the column to be stemmed
 
-x <- data.frame(x = c("banyaknya","sangat","terkedu", "pengetahuan"))
+x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 
-stem_malay(Word = x, dictionary = malayrootwords, by = c("x" = "Col Word") , col_feature = "x")
+stem_malay(Word = x, dictionary = malayrootwords, col_feature1 = "text")
 
 }
 \references{
