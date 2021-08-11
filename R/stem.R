@@ -49,7 +49,7 @@ to_data.frame <- function(x) {
 
   `Col Word` = NULL
 
-  tibble::as_tibble(x) %>%
+  data.frame(x) %>%
     dplyr::rename(`Col Word` = 1) %>%
     dplyr::mutate(`Col Word` = stringr::str_to_lower(`Col Word`))
 

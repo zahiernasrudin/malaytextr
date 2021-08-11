@@ -48,11 +48,8 @@ To stem word "banyaknya". It will return a data frame with the word "banyaknya" 
 ```r
 stem_malay(Word = "banyaknya", dictionary = malayrootwords)
 
-Joining, by = "Col Word"
-# A tibble: 1 x 2
-  `Col Word` root_word
-  <chr>      <chr>    
-1 banyaknya  banyak 
+ Col Word root_word
+1 banyaknya    banyak
 ```
 
 To stem words in a data frame:
