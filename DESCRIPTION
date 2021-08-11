@@ -1,13 +1,13 @@
 Package: malaytextr
-Title: What the Package Does (One Line, Title Case)
+Title: Text Mining for Bahasa Malaysia
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Zahier",
+           family = "Nasrudin",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "zahiernasrudin@gmail.com",
+           comment = c(ORCID = "0000-0002-7060-776X"))
+Description: Text mining application (Bahasa Malaysia).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
