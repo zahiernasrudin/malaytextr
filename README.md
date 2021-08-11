@@ -60,7 +60,7 @@ To stem words in a data frame:
 
 ```r
 
-x <- data.frame(x = c("banyaknya","sangat","terkedu", "pengetahuan"))
+x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 
 stem_malay(Word = x, 
           dictionary = malayrootwords, 
