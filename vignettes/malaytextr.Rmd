@@ -1,0 +1,75 @@
+---
+title: "malaytextr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{malaytextr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(malaytextr)
+```
+
+## Examples
+
+### Malay root words
+
+There is a data frame of Malay root words that can be used as a dictionary:
+
+```{r}
+
+head(malayrootwords)
+
+```
+
+
+### Stem Malay words
+
+stem_malay() will find the root words in a dictionary, in which the malayrootwords data frame can be used, then it will remove "extra suffix"", "prefix" and lastly "suffix"
+
+To stem word "banyaknya". It will return a data frame with the word "banyaknya" and the stemmed word "banyak":
+
+```{r}
+
+stem_malay(Word = "banyaknya", dictionary = malayrootwords)
+
+```
+
+To stem words in a data frame:
+
+1. Specify the data frame
+2. Specify the dictionary
+3. Specify the column that needs to be stemmed
+
+```{r}
+
+x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
+
+stem_malay(Word = x, 
+          dictionary = malayrootwords, 
+          col_feature1 = "text")
+
+
+```
+
+### Remove URLs
+
+remove_url will remove all urls found in a string
+
+```{r}
+
+x <- c("test https://t.co/fkQC2dXwnc", "another one https://www.google.com/ to try")
+
+remove_url(x)
+
+
+```
+
