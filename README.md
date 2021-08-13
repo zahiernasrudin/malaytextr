@@ -2,8 +2,9 @@
 Bahasa Malaysia NLP Package for R
 
 ## Features
-- Malayrootwords dictionary list
+- Malayrootwords dictionary list (Updated with new root words: 13 August 2021)
 - Stemming words
+- Remove URLs (New function: 13 August 2021)
 
 ## Installation
 
@@ -22,7 +23,7 @@ There is a data frame of Malay root words that can be used as a dictionary:
 
 malayrootwords
 
-# A tibble: 4,244 x 2
+# A tibble: 4,250 x 2
    `Col Word` `Root Word`
    <chr>      <chr>      
  1 ad         ada        
@@ -35,7 +36,7 @@ malayrootwords
  8 bkn        bukan      
  9 blm        belum      
 10 bnjr       banjir     
-# ... with 4,234 more rows
+# ... with 4,240 more rows
 
 ```
 
@@ -73,6 +74,21 @@ stem_malay(Word = x,
 4 pengetahuan      tahu
 
 ```
+
+Remove URLs
+
+`remove_url` will remove all urls found in a string 
+
+```r
+
+x <- c("test https://t.co/fkQC2dXwnc", "another one https://www.google.com/ to try")
+
+remove_url(x)
+
+[1] "test "               "another one  to try"
+
+```
+
 
 ## Report a bug
 

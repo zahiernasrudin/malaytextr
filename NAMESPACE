@@ -3,5 +3,6 @@
 S3method(stem_malay,character)
 S3method(stem_malay,data.frame)
 export("%>%")
+export(remove_url)
 export(stem_malay)
 importFrom(magrittr,"%>%")
