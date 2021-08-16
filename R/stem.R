@@ -24,6 +24,12 @@
 #' @param col_dict1 Column that will be used to match with `col_feature1` from `Word`
 #' @param col_dict2 Column that contains the root words from `dictionary`
 #'
+#' @return Returns a data frame with the following properties:
+#'
+#'   - `Col Word`: Renamed input from `Word`
+#'   - `root_word`: An additional column which contains the word(s) after being stemmed.
+#'
+#'
 #' @examples
 #'
 #' #Specifying a character vector &

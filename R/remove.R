@@ -7,6 +7,8 @@
 #'
 #' @param string String to change
 #'
+##' @return Returns a string with URL links removed
+#'
 #' @export
 #'
 #' @examples

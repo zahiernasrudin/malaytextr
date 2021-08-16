@@ -9,6 +9,9 @@ remove_url(string)
 \arguments{
 \item{string}{String to change}
 }
+\value{
+Returns a string with URL links removed
+}
 \description{
 Remove URL links
 }

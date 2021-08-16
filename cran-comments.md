@@ -1,3 +1,11 @@
+## Resubmission
+This is a resubmission. In this version, I have:
+
+* Added a detailed description of what the package does in the DESCRIPTION file
+* Added a reference describing method used in the DESCRIPTION file
+* Added \value to stem.Rd and remove_url.Rd
+
+
 ## Test environments
 - R-hub windows-x86_64-devel (r-devel)
 - R-hub ubuntu-gcc-release (r-release)

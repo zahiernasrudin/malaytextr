@@ -25,6 +25,13 @@ stem_malay(Word,
 
 \item{col_dict2}{Column that contains the root words from \code{dictionary}}
 }
+\value{
+Returns a data frame with the following properties:
+\itemize{
+\item \verb{Col Word}: Renamed input from \code{Word}
+\item \code{root_word}: An additional column which contains the word(s) after being stemmed.
+}
+}
 \description{
 Malaytextr function to stem Malay words
 }
