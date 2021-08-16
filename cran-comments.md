@@ -19,9 +19,29 @@ This is a resubmission. In this version, I have:
   
   
     Bahasa (2:24, 10:39)
+    Abdulrazak (15:48)
+    Adruce (14:62)
+    Anding (15:17)
+    Fitri (14:5)
+    Hababi (15:74)
+    Inam (14:31)
+    Mohamad (14:18)
+    Muh (14:27)
+    Nawaz (15:32)
+    Nuli (15:12)
+    Rehman (13:65)
+    Sajjad (15:25)
+    Saleh (15:65)
+    Shahren (14:43)
+    Suraya (14:11)
+    UlHaq (14:36)
+    Ullah (13:72)
+    Yahya (15:59)
+    Zadi (14:57)
+    
   Possibly mis-spelled words in DESCRIPTION:
 
 0 errors √ | 0 warnings √ | 1 note x
 
 * This is a new submission
-* For Bahasa, it is not mis-spelled. It is from Malay languange. "Bahasa" which is language in English
+* It is not mis-spelled. These are names of authors from a research paper.
