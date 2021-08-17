@@ -17,19 +17,18 @@ This is a resubmission. In this version, I have:
   Maintainer: 'Zahier Nasrudin <zahiernasrudin@gmail.com>'
   New submission
   
-  
-    Bahasa (2:24, 10:39)
+   Possibly mis-spelled words in DESCRIPTION:
     Abdulrazak (15:48)
     Adruce (14:62)
     Anding (15:17)
     Fitri (14:5)
     Hababi (15:74)
-    Inam (14:31)
     Mohamad (14:18)
-    Muh (14:27)
+    Inam (14:31)
     Nawaz (15:32)
     Nuli (15:12)
     Rehman (13:65)
+    Muh (14:27)
     Sajjad (15:25)
     Saleh (15:65)
     Shahren (14:43)
@@ -38,10 +37,8 @@ This is a resubmission. In this version, I have:
     Ullah (13:72)
     Yahya (15:59)
     Zadi (14:57)
-    
-  Possibly mis-spelled words in DESCRIPTION:
+
 
 0 errors √ | 0 warnings √ | 1 note x
 
-* This is a new submission
 * It is not mis-spelled. These are names of authors from a research paper.
