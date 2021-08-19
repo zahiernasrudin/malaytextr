@@ -1,6 +1,12 @@
 # malaytextr
 Bahasa Malaysia NLP Package for R
 
+ <!-- badges: start -->
+  [![CRAN status](https://www.r-pkg.org/badges/version/malaytextr)](https://CRAN.R-project.org/package=malaytextr)
+  [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+  [![Codecov test coverage](https://codecov.io/gh/zahiernasrudin/malaytextr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zahiernasrudin/malaytextr/branch/master)
+  <!-- badges: end -->
+
 ## Features
 - Malayrootwords dictionary list (Updated with new root words: 13 August 2021)
 - Stemming words
@@ -8,7 +14,13 @@ Bahasa Malaysia NLP Package for R
 
 ## Installation
 
-You can install the development version from GitHub with:
+Install the latest version of this package by entering the following in R:
+
+```r
+install.packages("malaytextr")
+```
+
+Or you can install the development version from GitHub with:
 
 ```r
 # install.packages("devtools")
