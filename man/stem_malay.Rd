@@ -8,28 +8,28 @@
 An object of class \code{function} of length 1.
 }
 \usage{
-stem_malay(Word,
+stem_malay(word,
   dictionary,
   col_feature1,
   col_dict1,
   col_dict2)
 }
 \arguments{
-\item{Word}{A data frame, or a character vector}
+\item{word}{A data frame, or a character vector}
 
 \item{dictionary}{A data frame with a column of words to be stemmed and a column of root words}
 
-\item{col_feature1}{Column that contains words to be stemmed from \code{Word}}
+\item{col_feature1}{Column that contains words to be stemmed from \code{word}}
 
-\item{col_dict1}{Column that will be used to match with \code{col_feature1} from \code{Word}}
+\item{col_dict1}{Column that will be used to match with \code{col_feature1} from \code{word}}
 
 \item{col_dict2}{Column that contains the root words from \code{dictionary}}
 }
 \value{
 Returns a data frame with the following properties:
 \itemize{
-\item \verb{Col Word}: Renamed input from \code{Word}
-\item \code{root_word}: An additional column which contains the word(s) after being stemmed.
+\item \verb{Col Word}: Renamed input from \code{word}
+\item \verb{Root Word}: An additional column which contains the word(s) after being stemmed.
 }
 }
 \description{
@@ -44,7 +44,7 @@ and then proceed to remove "extra suffix" as explained by Khan et al. (2017), an
 #Specifying a character vector &
 #use a dictionary from malaytextr package
 
-stem_malay(Word = "banyaknya", dictionary = malayrootwords)
+stem_malay(word = "banyaknya", dictionary = malayrootwords)
 
 
 
@@ -54,7 +54,7 @@ stem_malay(Word = "banyaknya", dictionary = malayrootwords)
 
 x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 
-stem_malay(Word = x, dictionary = malayrootwords, col_feature1 = "text")
+stem_malay(word = x, dictionary = malayrootwords, col_feature1 = "text")
 
 }
 \references{

@@ -39,7 +39,7 @@ To stem word "banyaknya". It will return a data frame with the word "banyaknya" 
 
 ```{r}
 
-stem_malay(Word = "banyaknya", dictionary = malayrootwords)
+stem_malay(word = "banyaknya", dictionary = malayrootwords)
 
 ```
 
@@ -53,7 +53,7 @@ To stem words in a data frame:
 
 x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 
-stem_malay(Word = x, 
+stem_malay(word = x, 
           dictionary = malayrootwords, 
           col_feature1 = "text")
 

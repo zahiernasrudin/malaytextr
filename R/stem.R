@@ -2,7 +2,7 @@
 #' Stemming Malay words
 #'
 #' Malaytextr function to stem Malay words
-#' @usage stem_malay(Word,
+#' @usage stem_malay(word,
 #'   dictionary,
 #'   col_feature1,
 #'   col_dict1,
@@ -16,18 +16,18 @@
 #'
 #' Khan, Rehman Ullah, Fitri Suraya Mohamad, Muh Inam UlHaq, Shahren Ahmad Zadi Adruce, Philip Nuli Anding, Sajjad Nawaz Khan, and Abdulrazak Yahya Saleh Al-Hababi. 2017. "Malay Language Stemmer."
 #'
-#' @param Word A data frame, or a character vector
+#' @param word A data frame, or a character vector
 #' @param dictionary A data frame with a column of words to be stemmed and a column of root words
 
 #'
-#' @param col_feature1 Column that contains words to be stemmed from `Word`
-#' @param col_dict1 Column that will be used to match with `col_feature1` from `Word`
+#' @param col_feature1 Column that contains words to be stemmed from `word`
+#' @param col_dict1 Column that will be used to match with `col_feature1` from `word`
 #' @param col_dict2 Column that contains the root words from `dictionary`
 #'
 #' @return Returns a data frame with the following properties:
 #'
-#'   - `Col Word`: Renamed input from `Word`
-#'   - `root_word`: An additional column which contains the word(s) after being stemmed.
+#'   - `Col Word`: Renamed input from `word`
+#'   - `Root Word`: An additional column which contains the word(s) after being stemmed.
 #'
 #'
 #' @examples
@@ -35,7 +35,7 @@
 #' #Specifying a character vector &
 #' #use a dictionary from malaytextr package
 #'
-#' stem_malay(Word = "banyaknya", dictionary = malayrootwords)
+#' stem_malay(word = "banyaknya", dictionary = malayrootwords)
 #'
 #'
 #'
@@ -45,7 +45,7 @@
 #'
 #'x <- data.frame(text = c("banyaknya","sangat","terkedu", "pengetahuan"))
 #'
-#'stem_malay(Word = x, dictionary = malayrootwords, col_feature1 = "text")
+#'stem_malay(word = x, dictionary = malayrootwords, col_feature1 = "text")
 #'
 #' @export
 "stem_malay"
@@ -62,7 +62,7 @@ to_data.frame <- function(x) {
 }
 
 
-stem_malay <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
+stem_malay <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
 
   UseMethod("stem_malay")
 
@@ -72,11 +72,11 @@ stem_malay <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", c
 #' @export
 
 
-stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
+stem_malay.character <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
 
   #global binding
 
-  root_word = NULL
+  `Root Word` = NULL
 
   #specify suffix, infix, prefix, suffix ----
 
@@ -86,7 +86,7 @@ stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Co
   suffix = "(kannya|nya|kan|an|i|kah|lah|pun|ita|man|wan|wati|ku|mu)$"
 
   # string to data frame ---
-  Word <- to_data.frame(Word)
+  word <- to_data.frame(word)
 
   # This is the root word variable in a dictionary ---
   col <- dplyr::sym(col_dict2)
@@ -95,7 +95,7 @@ stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Co
   dictionary <- dplyr::mutate_all(dictionary, .funs= stringr::str_to_lower)
 
   # Map word to get the root word ---
-  df_map <- dplyr::left_join(Word, dictionary, by = c("Col Word" = rlang::as_name(col_dict1))) #map word with root word
+  df_map <- dplyr::left_join(word, dictionary, by = c("Col Word" = rlang::as_name(col_dict1))) #map word with root word
 
   # To indicate which one can be found, and which not ---
   df_map <- df_map %>%
@@ -105,31 +105,31 @@ stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Co
 
   # If word can be found, use the word from dictionary ---
   df_map <- df_map %>%
-    dplyr::mutate(root_word = dplyr::if_else(match == "YES",
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "YES",
                                              {{col}},
-                                             Word %>% dplyr::pull(1))) %>%
+                                             word %>% dplyr::pull(1))) %>%
 
 
     # If cannot be found, remove extra suffix ---
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, extra_suffix),
-                                             stringr::str_remove(root_word, extra_suffix),
-                                             root_word)) %>%
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, extra_suffix),
+                                             stringr::str_remove(`Root Word`, extra_suffix),
+                                             `Root Word`)) %>%
 
     # Then remove prefix for word with more than 5 characters
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, prefix) & nchar(root_word) > 5,
-                                             stringr::str_remove(root_word, prefix),
-                                             root_word)) %>%
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, prefix) & nchar(`Root Word`) > 5,
+                                             stringr::str_remove(`Root Word`, prefix),
+                                             `Root Word`)) %>%
 
     # Then remove suffix for word with more than 5 characters
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, suffix) & nchar(root_word) > 5,
-                                             stringr::str_remove(root_word, suffix),
-                                             root_word))
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, suffix) & nchar(`Root Word`) > 5,
+                                             stringr::str_remove(`Root Word`, suffix),
+                                             `Root Word`))
 
   df_map <- df_map %>%
-    dplyr::select(-c({{col}}, match))
+    dplyr::select(-c(match))
 
 
 
@@ -139,11 +139,11 @@ stem_malay.character <- function(Word, dictionary, col_feature1, col_dict1 = "Co
 
 #' @export
 
-stem_malay.data.frame <- function(Word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word")  {
+stem_malay.data.frame <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word")  {
 
   #global binding
 
-  root_word = NULL
+  `Root Word` = NULL
   `Col Word` = NULL
 
   #specify suffix, infix, prefix, suffix ----
@@ -158,14 +158,14 @@ stem_malay.data.frame <- function(Word, dictionary, col_feature1, col_dict1 = "C
   col <- dplyr::sym(col_dict2)
 
   # Change columns to lowercase-format ---
-  Word <- dplyr::mutate_all(Word, .funs= stringr::str_to_lower)
+  word <- dplyr::mutate_all(word, .funs= stringr::str_to_lower)
   dictionary <- dplyr::mutate_all(dictionary, .funs= stringr::str_to_lower)
 
   # Rename column
-  Word <- dplyr::rename(Word, `Col Word` = {{ col_feature1 }})
+  word <- dplyr::rename(word, `Col Word` = {{ col_feature1 }})
 
   # Map word to get the root word ---
-  df_map <- dplyr::left_join(Word, dictionary, by = c("Col Word" =  rlang::as_name(col_dict1)))
+  df_map <- dplyr::left_join(word, dictionary, by = c("Col Word" =  rlang::as_name(col_dict1)))
 
   # To indicate which one can be found, and which not ---
   df_map <- df_map %>%
@@ -174,29 +174,29 @@ stem_malay.data.frame <- function(Word, dictionary, col_feature1, col_dict1 = "C
                                          "YES"))
   # If word can be found, use the word from dictionary ---
   df_map <- df_map %>%
-    dplyr::mutate(root_word = dplyr::if_else(match == "YES",
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "YES",
                                              {{col}},
                                              `Col Word`)) %>%
 
     # If cannot be found, remove extra suffix ---
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, extra_suffix),
-                                             stringr::str_remove(root_word, extra_suffix),
-                                             root_word)) %>%
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, extra_suffix),
+                                             stringr::str_remove(`Root Word`, extra_suffix),
+                                             `Root Word`)) %>%
 
     # Then remove prefix for word with more than 5 characters
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, prefix) & nchar(root_word) > 5,
-                                             stringr::str_remove(root_word, prefix),
-                                             root_word)) %>%
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, prefix) & nchar(`Root Word`) > 5,
+                                             stringr::str_remove(`Root Word`, prefix),
+                                             `Root Word`)) %>%
     # Then remove suffix for word with more than 5 characters
-    dplyr::mutate(root_word = dplyr::if_else(match == "NO" &
-                                               stringr::str_detect(root_word, suffix) & nchar(root_word) > 5,
-                                             stringr::str_remove(root_word, suffix),
-                                             root_word))
+    dplyr::mutate(`Root Word` = dplyr::if_else(match == "NO" &
+                                               stringr::str_detect(`Root Word`, suffix) & nchar(`Root Word`) > 5,
+                                             stringr::str_remove(`Root Word`, suffix),
+                                             `Root Word`))
 
   df_map <- df_map %>%
-    dplyr::select(-c({{col}}, match))
+    dplyr::select(-c(match))
 
 
 
