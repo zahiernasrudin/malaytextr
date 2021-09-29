@@ -6,7 +6,8 @@
 #'   dictionary,
 #'   col_feature1,
 #'   col_dict1,
-#'   col_dict2)
+#'   col_dict2,
+#'   Word)
 #'
 #' @details
 #' `stem_malay()` is an approach to find the Malay words in a dictionary
@@ -18,11 +19,10 @@
 #'
 #' @param word A data frame, or a character vector
 #' @param dictionary A data frame with a column of words to be stemmed and a column of root words
-
-#'
 #' @param col_feature1 Column that contains words to be stemmed from `word`
 #' @param col_dict1 Column that will be used to match with `col_feature1` from `word`
 #' @param col_dict2 Column that contains the root words from `dictionary`
+#' @param Word Depreciated. Please use `word` instead
 #'
 #' @return Returns a data frame with the following properties:
 #'
@@ -62,7 +62,7 @@ to_data.frame <- function(x) {
 }
 
 
-stem_malay <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
+stem_malay <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word", Word) {
 
   UseMethod("stem_malay")
 
@@ -72,11 +72,17 @@ stem_malay <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", c
 #' @export
 
 
-stem_malay.character <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word") {
+stem_malay.character <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word", Word) {
 
   #global binding
 
   `Root Word` = NULL
+
+  if (!missing(Word)) {
+    warning("argument Word is deprecated; please use word instead.",
+            call. = FALSE)
+    word <- Word
+  }
 
   #specify suffix, infix, prefix, suffix ----
 
@@ -131,7 +137,7 @@ stem_malay.character <- function(word, dictionary, col_feature1, col_dict1 = "Co
   df_map <- df_map %>%
     dplyr::select(-c(match))
 
-
+  message("'Root Word' is now returned instead of 'root_word'")
 
   return(df_map)
 }
@@ -139,12 +145,18 @@ stem_malay.character <- function(word, dictionary, col_feature1, col_dict1 = "Co
 
 #' @export
 
-stem_malay.data.frame <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word")  {
+stem_malay.data.frame <- function(word, dictionary, col_feature1, col_dict1 = "Col Word", col_dict2 = "Root Word", Word)  {
 
   #global binding
 
   `Root Word` = NULL
   `Col Word` = NULL
+
+  if (!missing(Word)) {
+    warning("argument Word is deprecated; please use word instead.",
+            call. = FALSE)
+    word <- Word
+  }
 
   #specify suffix, infix, prefix, suffix ----
 
@@ -197,6 +209,8 @@ stem_malay.data.frame <- function(word, dictionary, col_feature1, col_dict1 = "C
 
   df_map <- df_map %>%
     dplyr::select(-c(match))
+
+  message("'Root Word' is now returned instead of 'root_word'")
 
 
 

@@ -12,7 +12,8 @@ stem_malay(word,
   dictionary,
   col_feature1,
   col_dict1,
-  col_dict2)
+  col_dict2,
+  Word)
 }
 \arguments{
 \item{word}{A data frame, or a character vector}
@@ -24,6 +25,8 @@ stem_malay(word,
 \item{col_dict1}{Column that will be used to match with \code{col_feature1} from \code{word}}
 
 \item{col_dict2}{Column that contains the root words from \code{dictionary}}
+
+\item{Word}{Depreciated. Please use \code{word} instead}
 }
 \value{
 Returns a data frame with the following properties:

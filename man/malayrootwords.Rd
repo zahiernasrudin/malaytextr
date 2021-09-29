@@ -5,7 +5,7 @@
 \alias{malayrootwords}
 \title{Data of Malay root words}
 \format{
-A tibble with 4320 rows and 2 variables:
+A tibble with 4365 rows and 2 variables:
 \describe{
 \item{\verb{Col Word}}{dbl Malay Word}
 \item{\verb{Root Word}}{dbl Malay Root Word}
