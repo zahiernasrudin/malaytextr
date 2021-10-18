@@ -2,7 +2,9 @@
 
 Bahasa Malaysia NLP Package for R
 
-<!-- badges: start --> [![CRAN status](https://www.r-pkg.org/badges/version/malaytextr)](https://CRAN.R-project.org/package=malaytextr) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![Codecov test coverage](https://codecov.io/gh/zahiernasrudin/malaytextr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zahiernasrudin/malaytextr/branch/master) [![](https://cranlogs.r-pkg.org/badges/grand-total/malaytextr)](https://cran.r-project.org/package=malaytextr) <!-- badges: end -->
+<!-- badges: start -->
+
+[![CRAN status](https://www.r-pkg.org/badges/version/malaytextr)](https://CRAN.R-project.org/package=malaytextr) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![Codecov test coverage](https://codecov.io/gh/zahiernasrudin/malaytextr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zahiernasrudin/malaytextr/branch/master) [![](https://cranlogs.r-pkg.org/badges/grand-total/malaytextr)](https://cran.r-project.org/package=malaytextr) <!-- badges: end -->
 
 ## Features
 
@@ -28,6 +30,8 @@ devtools::install_github("zahiernasrudin/malaytextr")
 
 ## Examples
 
+### Malay root words
+
 There is a data frame of Malay root words that can be used as a dictionary:
 
 ``` r
@@ -49,7 +53,7 @@ malayrootwords
 # ... with 4,355 more rows
 ```
 
-Stem Malay words
+### Stem Malay words
 
 `stem_malay()` will find the root words in a dictionary, in which the `malayrootwords` data frame can be used, then it will remove "extra suffix"", "prefix" and lastly "suffix"
 
@@ -86,7 +90,7 @@ stem_malay(word = x,
 4 pengetahuan      tahu
 ```
 
-Remove URLs
+### Remove URLs
 
 `remove_url` will remove all urls found in a string
 
@@ -97,6 +101,29 @@ remove_url(x)
 
 [1] "test "               "another one  to try"
 ```
+
+### Malay stop words
+
+In the development version, there is a data frame of Malay stop words:
+
+``` r
+malaystopwords
+# A tibble: 512 x 1
+   stopwords
+   <chr>    
+ 1 ada      
+ 2 sampai   
+ 3 sana     
+ 4 itu      
+ 5 sangat   
+ 6 saya     
+ 7 jadi     
+ 8 se       
+ 9 agak     
+10 jangan   
+# ... with 502 more rows
+```
+
 
 ## Report a bug
 
