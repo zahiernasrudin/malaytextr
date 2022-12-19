@@ -13,9 +13,10 @@ Bahasa Malaysia NLP Package for R
 ## Features
 
 -   Malayrootwords dictionary
--   Malaystopwords dictionary (Development version)
+-   Malaystopwords dictionary
 -   Stemming words
 -   Remove URLs (New function: 13 August 2021)
+-   Sentiment words (Development version)
 
 ## Installation
 
@@ -63,7 +64,7 @@ malayrootwords
 
 To stem word "banyaknya". It will return a data frame with the word "banyaknya" and the stemmed word "banyak":
 
-**Note: In the development version, 'Root Word' is now returned instead of 'root_word'**
+**Note: 'Root Word' is now returned instead of 'root_word'**
 
 ``` r
 stem_malay(word = "banyaknya", dictionary = malayrootwords)
@@ -108,7 +109,7 @@ remove_url(x)
 
 ### Malay stop words
 
-In the development version, there is a data frame of Malay stop words:
+There is a data frame of Malay stop words:
 
 ``` r
 malaystopwords
@@ -126,6 +127,28 @@ malaystopwords
  9 agak     
 10 jangan   
 # ... with 502 more rows
+```
+
+### Sentiment words
+
+This lexicon includes words that have been labelled as positive or negative:
+
+``` r
+sentiment_general
+# A tibble: 1,424 × 2
+   Word      Sentiment
+   <chr>     <chr>    
+ 1 berjaya   Positive 
+ 2 baik      Positive 
+ 3 terkenal  Positive 
+ 4 membantu  Positive 
+ 5 mudah     Positive 
+ 6 popular   Positive 
+ 7 moden     Positive 
+ 8 memenangi Positive 
+ 9 bebas     Positive 
+10 menarik   Positive 
+# … with 1,414 more rows
 ```
 
 

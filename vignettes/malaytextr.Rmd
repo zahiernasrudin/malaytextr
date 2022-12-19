@@ -82,3 +82,13 @@ There is a data frame of Malay stop words:
 head(malaystopwords)
 
 ```
+
+### Sentiment lexicon
+
+This lexicon includes words that have been labelled as positive or negative. This is useful for tasks like sentiment analysis, which involves determining the overall sentiment expressed in a piece of text. To use the lexicon, process the text and check each word against the lexicon to determine its sentiment. To note, this sentiment lexicon was created based on a general corpus, sourced from news articles
+
+```{r}
+
+head(sentiment_general)
+
+```

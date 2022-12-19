@@ -69,3 +69,23 @@ malaystopwords
 10 jangan   
 # ... with 502 more rows
 ```
+
+5. Sentiment words data frame:
+
+``` r
+sentiment_general
+# A tibble: 1,424 × 2
+   Word      Sentiment
+   <chr>     <chr>    
+ 1 berjaya   Positive 
+ 2 baik      Positive 
+ 3 terkenal  Positive 
+ 4 membantu  Positive 
+ 5 mudah     Positive 
+ 6 popular   Positive 
+ 7 moden     Positive 
+ 8 memenangi Positive 
+ 9 bebas     Positive 
+10 menarik   Positive 
+# … with 1,414 more rows
+```
