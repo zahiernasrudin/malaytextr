@@ -3,7 +3,7 @@
 library(readr)
 library(dplyr)
 
-malayrootwords <- read_csv("G:/My Drive/1. Zahier Projects/13. malaytextr/data-raw/malayrootwords.csv")
+malayrootwords <- read_csv("~/Documents/data science/text mining/malaytextr/39. Malay text package/data-use/malayrootwords.csv")
 
 malayrootwords %>%
   count(`Col Word`, sort = T)
