@@ -1,6 +1,6 @@
 # malaytextr
 
-Bahasa Malaysia NLP Package for R
+malaytextr: An R package to process Malay text data. It offers a number of functions/datasets for analyzing and working with text data in the Malay language.
 
 
 <!-- badges: start -->
@@ -17,6 +17,7 @@ Bahasa Malaysia NLP Package for R
 -   Stemming words
 -   Remove URLs (New function: 13 August 2021)
 -   Sentiment words (Development version)
+-   Normalized words (Development version) 
 
 ## Installation
 
@@ -129,7 +130,7 @@ malaystopwords
 # ... with 502 more rows
 ```
 
-### Sentiment words
+### Sentiment words (Development version)
 
 This lexicon includes words that have been labelled as positive or negative:
 
@@ -138,17 +139,42 @@ sentiment_general
 # A tibble: 1,424 × 2
    Word      Sentiment
    <chr>     <chr>    
- 1 berjaya   Positive 
- 2 baik      Positive 
- 3 terkenal  Positive 
- 4 membantu  Positive 
- 5 mudah     Positive 
- 6 popular   Positive 
- 7 moden     Positive 
- 8 memenangi Positive 
- 9 bebas     Positive 
-10 menarik   Positive 
+ 1 aduan     Negative 
+ 2 agresif   Negative 
+ 3 amaran    Negative 
+ 4 anarki    Negative 
+ 5 ancaman   Negative 
+ 6 aneh      Negative 
+ 7 antagonis Negative 
+ 8 azab      Negative 
+ 9 babi      Negative 
+10 bahaya    Negative 
 # … with 1,414 more rows
+```
+
+
+### Normalized words (Development version)
+
+This dataset is a development version that aims to provide a standardized version of Malay words. It is designed to standardize words that have multiple variations/spellings
+
+```r
+
+normalized
+# A tibble: 153 × 2
+   `Col Word` `Normalized Word`
+   <chr>      <chr>            
+ 1 ad         ada              
+ 2 ak         aku              
+ 3 akn        akan             
+ 4 ank        anak             
+ 5 ap         apa              
+ 6 awl        awal             
+ 7 bg         bagi             
+ 8 bkn        bukan            
+ 9 blm        belum            
+10 bnjr       banjir           
+# … with 143 more rows
+
 ```
 
 

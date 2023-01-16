@@ -2,7 +2,8 @@
 
 library(tidyverse)
 
-sentiment_general <- read_csv("~/Documents/data science/text mining/malaytextr/39. Malay text package/data-use/sentiment_general.csv")
+sentiment_general <- read_csv("~/Documents/data science/text mining/malaytextr/data_use/sentiment_general.csv")
+
 
 sentiment_general %>%
   count(Word, sort = T)
