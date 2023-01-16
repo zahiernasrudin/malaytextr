@@ -1,4 +1,4 @@
-# malaytextr 0.1.2
+# malaytextr 0.1.3
 
 1. Added more Malay root words:
 

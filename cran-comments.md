@@ -1,9 +1,9 @@
 ## Resubmission
-This is a resubmission. In this version, I have:
+In this version, I have:
 
 * Added a detailed description of what the package does in the DESCRIPTION file
-* Added a reference describing method used in the DESCRIPTION file
-* Added \value to stem.Rd and remove_url.Rd
+* Added a "normalized"" dataset
+* Added a "sentiment"" dataset
 
 
 ## Test environments

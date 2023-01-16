@@ -1,4 +1,4 @@
-#' @title Data of Malay root words
+#' @title Data of Malay normalized words
 #' @format A tibble with 153 rows and 2 variables:
 #' \describe{
 #'   \item{`Col Word`}{dbl Word}
