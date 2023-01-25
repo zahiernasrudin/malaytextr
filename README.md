@@ -132,7 +132,7 @@ malaystopwords
 # ... with 502 more rows
 ```
 
-### Sentiment words (Development version)
+### Sentiment words
 
 This lexicon includes words that have been labelled as positive or negative:
 
@@ -155,7 +155,7 @@ sentiment_general
 ```
 
 
-### Normalized words (Development version)
+### Normalized words
 
 Aims to provide a standardized version of Malay words. It is designed to standardize words that have multiple variations/spellings
 
