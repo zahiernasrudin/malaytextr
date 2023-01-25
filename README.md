@@ -3,8 +3,12 @@
 malaytextr: An R package to process Malay text data. It offers a number of functions/datasets for analyzing and working with text data in the Malay language.
 
 
-<!-- badges: start --> [![CRAN status](https://www.r-pkg.org/badges/version/malaytextr)](https://CRAN.R-project.org/package=malaytextr) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![Codecov test coverage](https://codecov.io/gh/zahiernasrudin/malaytextr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zahiernasrudin/malaytextr/branch/master) [![](https://cranlogs.r-pkg.org/badges/grand-total/malaytextr)](https://cran.r-project.org/package=malaytextr) <!-- badges: end -->
-=======
+<!-- badges: start --> 
+[![CRAN status](https://www.r-pkg.org/badges/version/malaytextr)](https://CRAN.R-project.org/package=malaytextr) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![Codecov test coverage](https://codecov.io/gh/zahiernasrudin/malaytextr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zahiernasrudin/malaytextr/branch/master) [![](https://cranlogs.r-pkg.org/badges/grand-total/malaytextr)](https://cran.r-project.org/package=malaytextr) 
+
+<!-- badges: end -->
+
+
 
 
 
@@ -14,8 +18,8 @@ malaytextr: An R package to process Malay text data. It offers a number of funct
 -   Malaystopwords dictionary
 -   Stemming words
 -   Remove URLs (New function: 13 August 2021)
--   Sentiment words (Development version)
--   Normalized words (Development version) 
+-   Sentiment words (New Data set: 16 Jan 2023)
+-   Normalized words (New Data set: 16 Jan 2023)
 
 ## Installation
 
@@ -153,7 +157,7 @@ sentiment_general
 
 ### Normalized words (Development version)
 
-This dataset is a development version that aims to provide a standardized version of Malay words. It is designed to standardize words that have multiple variations/spellings
+Aims to provide a standardized version of Malay words. It is designed to standardize words that have multiple variations/spellings
 
 ```r
 

@@ -16,7 +16,7 @@ Description: It is designed to work with text written in Bahasa Malaysia. We pro
     (2017) <https://ijrest.net/vol-4-issue-12.html> . This package includes
     a dictionary of Malay words that may be used to perform word stemming, 
     a dataset of Malay stop words, a dataset of sentiment words
-    and a dataset of normalized words
+    and a dataset of normalized words.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
