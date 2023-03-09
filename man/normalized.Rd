@@ -3,7 +3,7 @@
 \docType{data}
 \name{normalized}
 \alias{normalized}
-\title{Data of Malay root words}
+\title{Data of Malay normalized words}
 \format{
 A tibble with 153 rows and 2 variables:
 \describe{
@@ -15,6 +15,6 @@ A tibble with 153 rows and 2 variables:
 normalized
 }
 \description{
-Data of Malay root words
+Data of Malay normalized words
 }
 \keyword{datasets}

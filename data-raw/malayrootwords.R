@@ -2,8 +2,13 @@
 
 library(readr)
 library(dplyr)
+library(stringr)
 
-malayrootwords <- read_csv("~/Documents/data science/text mining/malaytextr/39. Malay text package/data-use/malayrootwords.csv")
+malayrootwords <- read_csv("~/Documents/data science/text mining/malaytextr/data_use/malayrootwords.csv")
+
+malayrootwords <- malayrootwords %>%
+  mutate(`Col Word` = str_to_lower(`Col Word`),
+         `Root Word` = str_to_lower(`Root Word`))
 
 malayrootwords %>%
   count(`Col Word`, sort = T)

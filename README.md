@@ -14,7 +14,7 @@ malaytextr: An R package to process Malay text data. It offers a number of funct
 
 ## Features
 
--   Malayrootwords dictionary
+-   Malayrootwords dictionary (Added more words; Development version: 9 March 2023)
 -   Malaystopwords dictionary
 -   Stemming words
 -   Remove URLs (New function: 13 August 2021)
@@ -45,20 +45,20 @@ There is a data frame of Malay root words that can be used as a dictionary:
 ``` r
 malayrootwords
 
-# A tibble: 4,365 x 2
-   `Col Word` `Root Word`
-   <chr>      <chr>      
- 1 ad         ada        
- 2 ak         aku        
- 3 akn        akan       
- 4 ank        anak       
- 5 ap         apa        
- 6 awl        awal       
- 7 bg         bagi       
- 8 bkn        bukan      
- 9 blm        belum      
-10 bnjr       banjir     
-# ... with 4,355 more rows
+# A tibble: 4,310 × 2
+   `Col Word`  `Root Word`
+   <chr>       <chr>      
+ 1 pengabadian abadi      
+ 2 pengabdian  abdi       
+ 3 pengacaraan acara      
+ 4 pengadangan adang      
+ 5 pengadilan  adil       
+ 6 pengairan   air        
+ 7 pengakaran  akar       
+ 8 pengaktifan aktif      
+ 9 pengalaman  alam       
+10 pengaman    aman       
+# … with 4,300 more rows
 ```
 
 ### Stem Malay words
