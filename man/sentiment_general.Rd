@@ -5,10 +5,10 @@
 \alias{sentiment_general}
 \title{Data of Sentiment Words (Positive or Negative)}
 \format{
-A tibble with 1424 rows and 2 variables:
+A tibble with 1428 rows and 2 variables:
 \describe{
 \item{\code{Word}}{dbl Sentiment Word}
-\item{\verb{Root Word}}{dbl Sentiment}
+\item{\code{Sentiment}}{dbl Sentiment}
 }
 }
 \usage{

@@ -18,7 +18,7 @@ malaytextr: An R package to process Malay text data. It offers a number of funct
 -   Malaystopwords dictionary
 -   Stemming words
 -   Remove URLs (New function: 13 August 2021)
--   Sentiment words (New Data set: 16 Jan 2023)
+-   Sentiment words (Added more words; Development version: 20 March 2023)
 -   Normalized words (New Data set: 16 Jan 2023)
 
 ## Installation
@@ -138,7 +138,7 @@ This lexicon includes words that have been labelled as positive or negative:
 
 ``` r
 sentiment_general
-# A tibble: 1,424 × 2
+# A tibble: 1,428 × 2
    Word      Sentiment
    <chr>     <chr>    
  1 aduan     Negative 
@@ -148,10 +148,10 @@ sentiment_general
  5 ancaman   Negative 
  6 aneh      Negative 
  7 antagonis Negative 
- 8 azab      Negative 
- 9 babi      Negative 
-10 bahaya    Negative 
-# … with 1,414 more rows
+ 8 anti      Negative 
+ 9 azab      Negative 
+10 babi      Negative 
+# … with 1,418 more rows
 ```
 
 
