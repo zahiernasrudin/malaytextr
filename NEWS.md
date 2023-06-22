@@ -21,7 +21,7 @@ malayrootwords
 # ... with 4,355 more rows
 ```
 
-5. Added more sentiment words:
+2. Added more sentiment words:
 
 ``` r
 sentiment_general
@@ -40,3 +40,27 @@ sentiment_general
 10 babi      Negative 
 # … with 1,418 more rows
 ```
+
+3. Malaysia Politic Tweets Sentiment Dataset (Development Version)
+
+```r
+
+malaysia_politic_sentiment
+# A tibble: 71 × 3
+      id text                                                                                      sentiment
+   <dbl> <chr>                                                                                     <chr>    
+ 1    21 "@azrulazimi @AbdMydin Lets gooo PH💪\n\n#KitaBoleh \n#PakatanHarapan"                    Positive 
+ 2    39 "Catatan Duha\nJangan bekerja secara solo, natijahnya tidak akan memberi impak yang ting… Negative 
+ 3    19 "@anwaribrahim saya pengundi PH P.107 sebelum ini akan menolak calon yg PH meletak di Su… Negative 
+ 4    65 "Sy sokong tanpa bangkang. Memang Anwar \"Calon PM\" terbaik. Dan dia sudah buktikan sel… Positive 
+ 5    58 "Peluncuran Tawaran Anak Muda Harapan oleh Angkatan Muda HARAPAN telah berlangsung pada … Neutral  
+ 6    63 "Rakyat pilih DSAI sbgai PM. Ayuh Malaysia pastikan calon PH menang di semua Parlimen. #… Positive 
+ 7    48 "Keep fit🔥🔥🔥\n\n#KitaBoleh \n#PRU15 \n#PakatanHarapan \n#P148AyerHitam https://t.co/g… Positive 
+ 8    50 "List of Perikatan Nasional GE15 candidates \nhttps://t.co/ngscrveeIm \n\n#theSun #thesu… Neutral  
+ 9    57 "Pas youth claims his party is full of intergrity compared to Barisan Nasional (BN) and … Positive 
+10     8 "@IsmailSabri60 Thank You Sir for promoting #PakatanHarapan #Menang #PKR_MENANG \ndi Ber… Positive 
+# ℹ 61 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+```
+
